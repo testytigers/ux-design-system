@@ -1,0 +1,41 @@
+{
+  "name": "@ux/tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "clean": "rm -rf dist"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./css": "./dist/css/variables.css",
+    "./primitive": {
+      "types": "./dist/primitive.d.ts",
+      "import": "./dist/primitive.mjs",
+      "require": "./dist/primitive.cjs"
+    },
+    "./alias": {
+      "types": "./dist/alias.d.ts",
+      "import": "./dist/alias.mjs",
+      "require": "./dist/alias.cjs"
+    },
+    "./component": {
+      "types": "./dist/component.d.ts",
+      "import": "./dist/component.mjs",
+      "require": "./dist/component.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}

@@ -1,0 +1,376 @@
+/**
+ * UX Design System — Global Styles
+ *
+ * Token layers (collapsed into a single :root + .dark below):
+ *   Layer 1 — Primitives:   raw scales (purple, neutral, status, accent,
+ *                           spacing, radius, shadow, z-index, transitions).
+ *   Layer 2 — Semantic:     names that carry meaning. These are what the
+ *                           Tailwind theme keys resolve to (bg-primary,
+ *                           text-foreground, border-border, bg-muted, …).
+ *                           The .dark block overrides this layer.
+ *   Layer 3 — Component:    optional, exposed via @ux/tokens for tooling.
+ *                           React components do not import it directly.
+ *
+ * Main brand:  purple-600 (#9333ea)
+ * Focus ring:  purple-500 (light) / purple-400 (dark)
+ * Headings:    Roboto Mono (monospace — deliberate, technical voice)
+ * Body:        Open Sans
+ *
+ * Dark mode is class-based: <html class="dark">. The .dark { … } selector
+ * below redefines the semantic layer; primitives stay constant.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ═══════════════════════════════════════════════════════════ */
+    /* LAYER 1: PRIMITIVE TOKENS                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+
+    /* ── Purple Spectrum ── */
+    --ux-color-purple-50: #faf5ff;
+    --ux-color-purple-100: #f3e8ff;
+    --ux-color-purple-200: #e9d5ff;
+    --ux-color-purple-300: #d8b4fe;
+    --ux-color-purple-400: #c084fc;
+    --ux-color-purple-500: #a855f7;
+    --ux-color-purple-600: #9333ea;
+    --ux-color-purple-700: #7e22ce;
+    --ux-color-purple-800: #6b21a8;
+    --ux-color-purple-900: #581c87;
+    --ux-color-purple-950: #3b0764;
+
+    /* ── Neutral Spectrum ── */
+    --ux-color-neutral-0: #ffffff;
+    --ux-color-neutral-50: #fafafa;
+    --ux-color-neutral-100: #f4f4f5;
+    --ux-color-neutral-200: #e4e4e7;
+    --ux-color-neutral-300: #d4d4d8;
+    --ux-color-neutral-400: #a1a1aa;
+    --ux-color-neutral-500: #71717a;
+    --ux-color-neutral-600: #52525b;
+    --ux-color-neutral-700: #3f3f46;
+    --ux-color-neutral-800: #27272a;
+    --ux-color-neutral-900: #18181b;
+    --ux-color-neutral-950: #09090b;
+
+    /* ── Status Colors ── */
+    --ux-color-status-success: #16a34a;
+    --ux-color-status-success-light: #bbf7d0;
+    --ux-color-status-warning: #ca8a04;
+    --ux-color-status-warning-light: #fef08a;
+    --ux-color-status-error: #dc2626;
+    --ux-color-status-error-light: #fecaca;
+    --ux-color-status-info: #2563eb;
+    --ux-color-status-info-light: #bfdbfe;
+
+    /* ── Opacity Modifiers for Channel-Form Colors ── */
+    --ux-color-opacity-5: rgba(0, 0, 0, 0.05);
+    --ux-color-opacity-10: rgba(0, 0, 0, 0.1);
+    --ux-color-opacity-20: rgba(0, 0, 0, 0.2);
+    --ux-color-opacity-30: rgba(0, 0, 0, 0.3);
+    --ux-color-opacity-40: rgba(0, 0, 0, 0.4);
+    --ux-color-opacity-50: rgba(0, 0, 0, 0.5);
+    --ux-color-opacity-60: rgba(0, 0, 0, 0.6);
+    --ux-color-opacity-70: rgba(0, 0, 0, 0.7);
+    --ux-color-opacity-80: rgba(0, 0, 0, 0.8);
+    --ux-color-opacity-90: rgba(0, 0, 0, 0.9);
+
+    /* ── Accent Colors ── */
+    --ux-color-accent-primary: #f472b6;
+    --ux-color-accent-primary-light: #fbcfe8;
+
+    /* ── Typography ── */
+    --ux-font-family-headings: "Roboto Mono", ui-monospace, monospace;
+    --ux-font-family-body: "Open Sans", sans-serif;
+    --ux-font-family-mono: "JetBrains Mono", monospace;
+    --ux-font-family-system: system-ui, -apple-system, sans-serif;
+
+    --ux-font-size-xs: 0.75rem;
+    --ux-font-size-sm: 0.875rem;
+    --ux-font-size-base: 1rem;
+    --ux-font-size-lg: 1.125rem;
+    --ux-font-size-xl: 1.25rem;
+    --ux-font-size-2xl: 1.5rem;
+    --ux-font-size-3xl: 1.875rem;
+    --ux-font-size-4xl: 2.25rem;
+    --ux-font-size-5xl: 3rem;
+
+    --ux-font-weight-normal: 400;
+    --ux-font-weight-medium: 500;
+    --ux-font-weight-semibold: 600;
+    --ux-font-weight-bold: 700;
+
+    --ux-line-height-tight: 1.25;
+    --ux-line-height-normal: 1.5;
+    --ux-line-height-relaxed: 1.75;
+
+    /* ── Spacing ── */
+    --ux-spacing-0: 0;
+    --ux-spacing-0.5: 0.125rem;
+    --ux-spacing-1: 0.25rem;
+    --ux-spacing-1.5: 0.375rem;
+    --ux-spacing-2: 0.5rem;
+    --ux-spacing-2\.5: 0.625rem;
+    --ux-spacing-3: 0.75rem;
+    --ux-spacing-4: 1rem;
+    --ux-spacing-5: 1.25rem;
+    --ux-spacing-6: 1.5rem;
+    --ux-spacing-7: 1.75rem;
+    --ux-spacing-8: 2rem;
+    --ux-spacing-9: 2.25rem;
+    --ux-spacing-10: 2.5rem;
+    --ux-spacing-12: 3rem;
+    --ux-spacing-14: 3.5rem;
+    --ux-spacing-16: 4rem;
+    --ux-spacing-20: 5rem;
+    --ux-spacing-24: 6rem;
+
+    /* ── Border Radius ── */
+    --ux-radius-none: 0;
+    --ux-radius-sm: 0.25rem;
+    --ux-radius-default: 0.375rem;
+    --ux-radius-md: 0.5rem;
+    --ux-radius-lg: 0.75rem;
+    --ux-radius-xl: 1rem;
+    --ux-radius-2xl: 1.5rem;
+    --ux-radius-3xl: 2rem;
+    --ux-radius-full: 9999px;
+
+    /* ── Shadows ── */
+    --ux-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --ux-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --ux-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --ux-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --ux-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* ── Z-Index ── */
+    --ux-z-index-base: 0;
+    --ux-z-index-dropdown: 1000;
+    --ux-z-index-sticky: 1100;
+    --ux-z-index-modal: 1200;
+    --ux-z-index-popover: 1300;
+    --ux-z-index-tooltip: 1400;
+
+    /* ── Transitions ── */
+    --ux-transition-fast: 100ms cubic-bezier(0.4, 0, 0.2, 1);
+    --ux-transition-normal: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --ux-transition-slow: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* LAYER 2: ALIAS TOKENS (Semantic Mappings)                  */
+    /* ═══════════════════════════════════════════════════════════ */
+
+    /* Backgrounds */
+    --ux-color-bg-primary: var(--ux-color-neutral-0);
+    --ux-color-bg-secondary: var(--ux-color-neutral-50);
+    --ux-color-bg-tertiary: var(--ux-color-neutral-100);
+    --ux-color-bg-subtle: var(--ux-color-neutral-50);
+    --ux-color-bg-elevated: var(--ux-color-neutral-0);
+    --ux-color-bg-inverted: var(--ux-color-neutral-950);
+    --ux-color-bg-overlay: rgba(0, 0, 0, 0.5);
+    --ux-color-bg-ghost: transparent;
+
+    /* Text */
+    --ux-color-text-primary: var(--ux-color-neutral-950);
+    --ux-color-text-secondary: var(--ux-color-neutral-600);
+    --ux-color-text-tertiary: var(--ux-color-neutral-500);
+    --ux-color-text-muted: var(--ux-color-neutral-400);
+    --ux-color-text-inverted: var(--ux-color-neutral-0);
+    --ux-color-text-link: var(--ux-color-purple-600);
+    --ux-color-text-on-primary: var(--ux-color-neutral-0);
+    --ux-color-text-on-accent: var(--ux-color-neutral-950);
+
+    /* Borders */
+    --ux-color-border-default: var(--ux-color-neutral-200);
+    --ux-color-border-strong: var(--ux-color-neutral-300);
+    --ux-color-border-subtle: var(--ux-color-neutral-100);
+    --ux-color-border-focus: var(--ux-color-purple-500);
+    --ux-color-border-destructive: var(--ux-color-status-error);
+
+    /* Shadcn-compat semantic surfaces (light counterparts to .dark vars) */
+    --ux-color-muted: var(--ux-color-neutral-100);
+    --ux-color-muted-foreground: var(--ux-color-neutral-500);
+    --ux-color-accent: var(--ux-color-purple-100);
+    --ux-color-accent-foreground: var(--ux-color-purple-900);
+    --ux-color-popover: var(--ux-color-neutral-0);
+    --ux-color-popover-foreground: var(--ux-color-neutral-950);
+    --ux-color-card: var(--ux-color-neutral-0);
+    --ux-color-card-foreground: var(--ux-color-neutral-950);
+
+    /* Form elements */
+    --ux-color-input: var(--ux-color-neutral-200);
+    --ux-color-ring: var(--ux-color-purple-500);
+    --ux-color-foreground: var(--ux-color-text-primary);
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* LAYER 3: COMPONENT TOKENS                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+
+    /* Button */
+    --ux-button-padding-x: var(--ux-spacing-4);
+    --ux-button-padding-y: var(--ux-spacing-2);
+    --ux-button-font-size: var(--ux-font-size-sm);
+    --ux-button-font-weight: var(--ux-font-weight-medium);
+    --ux-button-border-radius: var(--ux-radius-md);
+    --ux-button-transition: var(--ux-transition-normal);
+
+    /* Card */
+    --ux-card-border-radius: var(--ux-radius-xl);
+    --ux-card-border-width: 1px;
+    --ux-card-padding: var(--ux-spacing-6);
+    --ux-card-shadow: var(--ux-shadow-md);
+
+    /* Badge */
+    --ux-badge-font-size: var(--ux-font-size-xs);
+    --ux-badge-padding-x: var(--ux-spacing-2.5);
+    --ux-badge-padding-y: var(--ux-spacing-0.5);
+    --ux-badge-border-radius: var(--ux-radius-sm);
+
+    /* Input */
+    --ux-input-height: var(--ux-spacing-9);
+    --ux-input-padding-x: var(--ux-spacing-3);
+    --ux-input-padding-y: var(--ux-spacing-1);
+    --ux-input-font-size: var(--ux-font-size-sm);
+    --ux-input-border-radius: var(--ux-radius-sm);
+    --ux-input-border-width: 1px;
+    --ux-input-focus-ring: 2px;
+
+    /* Dialog/Modal */
+    --ux-dialog-border-radius: var(--ux-radius-xl);
+    --ux-dialog-shadow: var(--ux-shadow-xl);
+    --ux-dialog-overlay: var(--ux-color-bg-overlay);
+
+    /* Toast */
+    --ux-toast-border-radius: var(--ux-radius-md);
+    --ux-toast-padding: var(--ux-spacing-4);
+    --ux-toast-shadow: var(--ux-shadow-lg);
+
+    /* Tooltip */
+    --ux-tooltip-border-radius: var(--ux-radius-sm);
+    --ux-tooltip-padding-x: var(--ux-spacing-3);
+    --ux-tooltip-padding-y: var(--ux-spacing-1.5);
+    --ux-tooltip-font-size: var(--ux-font-size-sm);
+
+    /* Skeleton */
+    --ux-skeleton-border-radius: var(--ux-radius-sm);
+
+    /* Avatar */
+    --ux-avatar-size: var(--ux-spacing-10);
+    --ux-avatar-border-radius: var(--ux-radius-full);
+
+    /* Progress */
+    --ux-progress-height: var(--ux-spacing-2);
+    --ux-progress-border-radius: var(--ux-radius-full);
+
+    /* Table */
+    --ux-table-border-radius: var(--ux-radius-md);
+    --ux-table-header-bg: var(--ux-color-neutral-50);
+    --ux-table-row-hover-bg: var(--ux-color-neutral-50);
+  }
+
+  /* ── Dark Mode (Purple-tinted) ── */
+  .dark {
+    --ux-color-bg-primary: var(--ux-color-neutral-950);
+    --ux-color-bg-secondary: var(--ux-color-neutral-900);
+    --ux-color-bg-tertiary: var(--ux-color-neutral-800);
+    --ux-color-bg-subtle: var(--ux-color-neutral-900);
+    --ux-color-bg-elevated: var(--ux-color-neutral-900);
+    --ux-color-bg-inverted: var(--ux-color-neutral-0);
+    --ux-color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+    --ux-color-text-primary: var(--ux-color-neutral-0);
+    --ux-color-text-secondary: var(--ux-color-neutral-300);
+    --ux-color-text-tertiary: var(--ux-color-neutral-400);
+    --ux-color-text-muted: var(--ux-color-neutral-500);
+    --ux-color-text-inverted: var(--ux-color-neutral-950);
+    --ux-color-text-link: var(--ux-color-purple-400);
+    --ux-color-text-on-primary: var(--ux-color-neutral-0);
+    --ux-color-text-on-accent: var(--ux-color-neutral-950);
+
+    --ux-color-border-default: var(--ux-color-neutral-800);
+    --ux-color-border-strong: var(--ux-color-neutral-700);
+    --ux-color-border-subtle: var(--ux-color-neutral-800);
+    --ux-color-border-focus: var(--ux-color-purple-400);
+    --ux-color-border-destructive: var(--ux-color-status-error);
+
+    --ux-color-muted: var(--ux-color-neutral-800);
+    --ux-color-muted-foreground: var(--ux-color-neutral-400);
+    --ux-color-accent: var(--ux-color-neutral-800);
+    --ux-color-accent-foreground: var(--ux-color-neutral-0);
+    --ux-color-popover: var(--ux-color-neutral-900);
+    --ux-color-popover-foreground: var(--ux-color-neutral-0);
+    --ux-color-card: var(--ux-color-neutral-900);
+    --ux-color-card-foreground: var(--ux-color-neutral-0);
+
+    --ux-color-input: var(--ux-color-neutral-800);
+    --ux-color-ring: var(--ux-color-purple-400);
+    --ux-color-foreground: var(--ux-color-text-primary);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  /* Shimmer animation for loading states */
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--ux-color-bg-secondary) 0%,
+      var(--ux-color-bg-tertiary) 50%,
+      var(--ux-color-bg-secondary) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Gradient text utility */
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(
+      135deg,
+      var(--ux-color-purple-400),
+      var(--ux-color-purple-600),
+      var(--ux-color-purple-800)
+    );
+  }
+
+  /* Glow effect */
+  .glow-purple {
+    box-shadow:
+      0 0 20px rgba(147, 51, 234, 0.3),
+      0 0 40px rgba(147, 51, 234, 0.1);
+  }
+}

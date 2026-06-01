@@ -1,0 +1,363 @@
+/**
+ * Brand Design System — Global Styles
+ *
+ * Forked from @ux/react. Brand colour: #8774e1 (violet-500).
+ *
+ * Token layers:
+ *   Layer 1 — Primitives:  raw scales (violet, neutral, status, accent,
+ *                          spacing, radius, shadow, z-index, transitions).
+ *   Layer 2 — Semantic:    meaning-bearing names that Tailwind theme keys
+ *                          resolve to (bg-primary, text-foreground, …).
+ *                          The .dark block overrides this layer.
+ *   Layer 3 — Component:   component-specific sizing/spacing tokens.
+ *
+ * Main brand:  violet-500 (#8774e1)
+ * Focus ring:  violet-400 (#a392ee)
+ * Headings:    Roboto Mono
+ * Body:        Open Sans
+ *
+ * Dark mode is class-based: <html class="dark">
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ═══════════════════════════════════════════════════════════ */
+    /* LAYER 1: PRIMITIVE TOKENS                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+
+    /* ── Violet Spectrum (brand: #8774e1 = violet-500) ── */
+    --ds-color-violet-50:  #f6f4ff;
+    --ds-color-violet-100: #ece8ff;
+    --ds-color-violet-200: #d9d1ff;
+    --ds-color-violet-300: #bcb0f7;
+    --ds-color-violet-400: #a392ee;
+    --ds-color-violet-500: #8774e1;
+    --ds-color-violet-600: #6e5bcb;
+    --ds-color-violet-700: #5242a9;
+    --ds-color-violet-800: #3c2e87;
+    --ds-color-violet-900: #291e61;
+    --ds-color-violet-950: #1a133f;
+
+    /* ── Neutral Spectrum ── */
+    --ds-color-neutral-0:   #ffffff;
+    --ds-color-neutral-50:  #fafafa;
+    --ds-color-neutral-100: #f4f4f5;
+    --ds-color-neutral-200: #e4e4e7;
+    --ds-color-neutral-300: #d4d4d8;
+    --ds-color-neutral-400: #a1a1aa;
+    --ds-color-neutral-500: #71717a;
+    --ds-color-neutral-600: #52525b;
+    --ds-color-neutral-700: #3f3f46;
+    --ds-color-neutral-800: #27272a;
+    --ds-color-neutral-900: #18181b;
+    --ds-color-neutral-950: #09090b;
+
+    /* ── Status Colors ── */
+    --ds-color-status-success:       #16a34a;
+    --ds-color-status-success-light: #bbf7d0;
+    --ds-color-status-warning:       #ca8a04;
+    --ds-color-status-warning-light: #fef08a;
+    --ds-color-status-error:         #dc2626;
+    --ds-color-status-error-light:   #fecaca;
+    --ds-color-status-info:          #2563eb;
+    --ds-color-status-info-light:    #bfdbfe;
+
+    /* ── Status Semantic ── */
+    --ds-color-status-success-bg: var(--ds-color-status-success-light);
+    --ds-color-status-success-fg: var(--ds-color-status-success);
+    --ds-color-status-warning-bg: var(--ds-color-status-warning-light);
+    --ds-color-status-warning-fg: var(--ds-color-status-warning);
+    --ds-color-status-error-bg:   var(--ds-color-status-error-light);
+    --ds-color-status-error-fg:   var(--ds-color-status-error);
+    --ds-color-status-info-bg:    var(--ds-color-status-info-light);
+    --ds-color-status-info-fg:    var(--ds-color-status-info);
+
+    /* ── Opacity Modifiers ── */
+    --ds-color-opacity-5:  rgba(0, 0, 0, 0.05);
+    --ds-color-opacity-10: rgba(0, 0, 0, 0.1);
+    --ds-color-opacity-20: rgba(0, 0, 0, 0.2);
+    --ds-color-opacity-30: rgba(0, 0, 0, 0.3);
+    --ds-color-opacity-40: rgba(0, 0, 0, 0.4);
+    --ds-color-opacity-50: rgba(0, 0, 0, 0.5);
+    --ds-color-opacity-60: rgba(0, 0, 0, 0.6);
+    --ds-color-opacity-70: rgba(0, 0, 0, 0.7);
+    --ds-color-opacity-80: rgba(0, 0, 0, 0.8);
+    --ds-color-opacity-90: rgba(0, 0, 0, 0.9);
+
+    /* ── Accent ── */
+    --ds-color-accent-primary:       #f472b6;
+    --ds-color-accent-primary-light: #fbcfe8;
+
+    /* ── Typography ── */
+    --ds-font-family-headings: "Roboto Mono", ui-monospace, monospace;
+    --ds-font-family-body:     "Open Sans", sans-serif;
+    --ds-font-family-mono:     "JetBrains Mono", monospace;
+    --ds-font-family-system:   system-ui, -apple-system, sans-serif;
+
+    --ds-font-size-xs:   0.75rem;
+    --ds-font-size-sm:   0.875rem;
+    --ds-font-size-base: 1rem;
+    --ds-font-size-lg:   1.125rem;
+    --ds-font-size-xl:   1.25rem;
+    --ds-font-size-2xl:  1.5rem;
+    --ds-font-size-3xl:  1.875rem;
+    --ds-font-size-4xl:  2.25rem;
+    --ds-font-size-5xl:  3rem;
+
+    --ds-font-weight-normal:   400;
+    --ds-font-weight-medium:   500;
+    --ds-font-weight-semibold: 600;
+    --ds-font-weight-bold:     700;
+
+    --ds-line-height-tight:   1.25;
+    --ds-line-height-normal:  1.5;
+    --ds-line-height-relaxed: 1.75;
+
+    --ds-letter-spacing-tight:  -0.025em;
+    --ds-letter-spacing-normal:  0em;
+    --ds-letter-spacing-wide:    0.025em;
+
+    /* ── Spacing ── */
+    --ds-spacing-0:   0;
+    --ds-spacing-0\.5: 0.125rem;
+    --ds-spacing-1:   0.25rem;
+    --ds-spacing-1\.5: 0.375rem;
+    --ds-spacing-2:   0.5rem;
+    --ds-spacing-2\.5: 0.625rem;
+    --ds-spacing-3:   0.75rem;
+    --ds-spacing-4:   1rem;
+    --ds-spacing-5:   1.25rem;
+    --ds-spacing-6:   1.5rem;
+    --ds-spacing-7:   1.75rem;
+    --ds-spacing-8:   2rem;
+    --ds-spacing-9:   2.25rem;
+    --ds-spacing-10:  2.5rem;
+    --ds-spacing-12:  3rem;
+    --ds-spacing-14:  3.5rem;
+    --ds-spacing-16:  4rem;
+    --ds-spacing-20:  5rem;
+    --ds-spacing-24:  6rem;
+
+    /* ── Border Radius ── */
+    --ds-radius-none: 0;
+    --ds-radius-sm:   0.125rem;
+    --ds-radius-md:   0.375rem;
+    --ds-radius-lg:   0.5rem;
+    --ds-radius-xl:   0.75rem;
+    --ds-radius-2xl:  1rem;
+    --ds-radius-3xl:  1.5rem;
+    --ds-radius-full: 9999px;
+
+    /* ── Shadows ── */
+    --ds-shadow-sm:  0 1px 2px 0 rgba(0,0,0,0.05);
+    --ds-shadow-md:  0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    --ds-shadow-lg:  0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+    --ds-shadow-xl:  0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    --ds-shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+
+    /* ── Z-Index ── */
+    --ds-z-index-dropdown: 1000;
+    --ds-z-index-sticky:   1020;
+    --ds-z-index-fixed:    1030;
+    --ds-z-index-modal:    1050;
+    --ds-z-index-popover:  1060;
+    --ds-z-index-tooltip:  1070;
+
+    /* ── Transitions ── */
+    --ds-transition-fast:   150ms ease;
+    --ds-transition-normal: 200ms ease;
+    --ds-transition-slow:   300ms ease;
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* LAYER 2: SEMANTIC (ALIAS) TOKENS                           */
+    /* ═══════════════════════════════════════════════════════════ */
+
+    /* Backgrounds */
+    --ds-color-bg-primary:  var(--ds-color-neutral-0);
+    --ds-color-bg-secondary: var(--ds-color-neutral-50);
+    --ds-color-bg-tertiary: var(--ds-color-neutral-100);
+    --ds-color-bg-subtle:   var(--ds-color-neutral-50);
+    --ds-color-bg-elevated: var(--ds-color-neutral-0);
+    --ds-color-bg-inverted: var(--ds-color-neutral-950);
+    --ds-color-bg-overlay:  rgba(0, 0, 0, 0.5);
+    --ds-color-bg-ghost:    transparent;
+
+    /* Text */
+    --ds-color-text-primary:    var(--ds-color-neutral-950);
+    --ds-color-text-secondary:  var(--ds-color-neutral-600);
+    --ds-color-text-tertiary:   var(--ds-color-neutral-500);
+    --ds-color-text-muted:      var(--ds-color-neutral-400);
+    --ds-color-text-inverted:   var(--ds-color-neutral-0);
+    --ds-color-text-link:       var(--ds-color-violet-500);
+    --ds-color-text-on-primary: var(--ds-color-neutral-0);
+    --ds-color-text-on-accent:  var(--ds-color-neutral-950);
+
+    /* Borders */
+    --ds-color-border-default:     var(--ds-color-neutral-200);
+    --ds-color-border-strong:      var(--ds-color-neutral-300);
+    --ds-color-border-subtle:      var(--ds-color-neutral-100);
+    --ds-color-border-focus:       var(--ds-color-violet-400);
+    --ds-color-border-destructive: var(--ds-color-status-error);
+
+    /* Shadcn-compat semantic surfaces */
+    --ds-color-muted:              var(--ds-color-neutral-100);
+    --ds-color-muted-foreground:   var(--ds-color-neutral-500);
+    --ds-color-accent:             var(--ds-color-violet-100);
+    --ds-color-accent-foreground:  var(--ds-color-violet-900);
+    --ds-color-popover:            var(--ds-color-neutral-0);
+    --ds-color-popover-foreground: var(--ds-color-neutral-950);
+    --ds-color-card:               var(--ds-color-neutral-0);
+    --ds-color-card-foreground:    var(--ds-color-neutral-950);
+
+    /* Form elements */
+    --ds-color-input:      var(--ds-color-neutral-200);
+    --ds-color-ring:       var(--ds-color-violet-400);
+    --ds-color-foreground: var(--ds-color-text-primary);
+
+    /* Brand semantic */
+    --ds-color-primary:             var(--ds-color-violet-500);
+    --ds-color-primary-foreground:  var(--ds-color-neutral-0);
+    --ds-color-secondary:           var(--ds-color-violet-100);
+    --ds-color-secondary-foreground: var(--ds-color-violet-900);
+    --ds-color-destructive:         var(--ds-color-status-error);
+    --ds-color-destructive-foreground: #ffffff;
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* LAYER 3: COMPONENT TOKENS                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+
+    /* Button */
+    --ds-button-padding-x:     var(--ds-spacing-4);
+    --ds-button-padding-y:     var(--ds-spacing-2);
+    --ds-button-font-size:     var(--ds-font-size-sm);
+    --ds-button-font-weight:   var(--ds-font-weight-medium);
+    --ds-button-border-radius: var(--ds-radius-md);
+    --ds-button-transition:    var(--ds-transition-normal);
+
+    /* Card */
+    --ds-card-border-radius: var(--ds-radius-xl);
+    --ds-card-border-width:  1px;
+    --ds-card-padding:       var(--ds-spacing-6);
+    --ds-card-shadow:        var(--ds-shadow-md);
+
+    /* Badge */
+    --ds-badge-font-size:     var(--ds-font-size-xs);
+    --ds-badge-padding-x:     var(--ds-spacing-2\.5);
+    --ds-badge-padding-y:     var(--ds-spacing-0\.5);
+    --ds-badge-border-radius: var(--ds-radius-sm);
+
+    /* Input */
+    --ds-input-height:        var(--ds-spacing-9);
+    --ds-input-padding-x:     var(--ds-spacing-3);
+    --ds-input-padding-y:     var(--ds-spacing-1);
+    --ds-input-font-size:     var(--ds-font-size-sm);
+    --ds-input-border-radius: var(--ds-radius-sm);
+    --ds-input-border-width:  1px;
+    --ds-input-focus-ring:    2px;
+
+    /* Dialog / Modal */
+    --ds-dialog-border-radius: var(--ds-radius-xl);
+    --ds-dialog-shadow:        var(--ds-shadow-xl);
+    --ds-dialog-overlay:       var(--ds-color-bg-overlay);
+
+    /* Toast */
+    --ds-toast-border-radius: var(--ds-radius-md);
+    --ds-toast-padding:       var(--ds-spacing-4);
+    --ds-toast-shadow:        var(--ds-shadow-lg);
+
+    /* Tooltip */
+    --ds-tooltip-border-radius: var(--ds-radius-sm);
+    --ds-tooltip-padding-x:     var(--ds-spacing-3);
+    --ds-tooltip-padding-y:     var(--ds-spacing-1\.5);
+    --ds-tooltip-font-size:     var(--ds-font-size-sm);
+
+    /* Skeleton */
+    --ds-skeleton-border-radius: var(--ds-radius-sm);
+
+    /* Avatar */
+    --ds-avatar-size:          var(--ds-spacing-10);
+    --ds-avatar-border-radius: var(--ds-radius-full);
+
+    /* Progress */
+    --ds-progress-height:        var(--ds-spacing-2);
+    --ds-progress-border-radius: var(--ds-radius-full);
+
+    /* Table */
+    --ds-table-border-radius: var(--ds-radius-md);
+    --ds-table-header-bg:     var(--ds-color-neutral-50);
+    --ds-table-row-hover-bg:  var(--ds-color-neutral-50);
+  }
+
+  /* ── Dark Mode ── */
+  .dark {
+    /* Backgrounds */
+    --ds-color-bg-primary:   var(--ds-color-neutral-950);
+    --ds-color-bg-secondary: var(--ds-color-neutral-900);
+    --ds-color-bg-tertiary:  var(--ds-color-neutral-800);
+    --ds-color-bg-subtle:    var(--ds-color-neutral-900);
+    --ds-color-bg-elevated:  var(--ds-color-neutral-900);
+    --ds-color-bg-inverted:  var(--ds-color-neutral-0);
+    --ds-color-bg-overlay:   rgba(0, 0, 0, 0.7);
+
+    /* Text */
+    --ds-color-text-primary:   var(--ds-color-neutral-50);
+    --ds-color-text-secondary: var(--ds-color-neutral-400);
+    --ds-color-text-tertiary:  var(--ds-color-neutral-500);
+    --ds-color-text-muted:     var(--ds-color-neutral-600);
+    --ds-color-text-inverted:  var(--ds-color-neutral-950);
+    --ds-color-text-link:      var(--ds-color-violet-400);
+
+    /* Borders */
+    --ds-color-border-default: var(--ds-color-neutral-800);
+    --ds-color-border-strong:  var(--ds-color-neutral-700);
+    --ds-color-border-subtle:  var(--ds-color-neutral-900);
+    --ds-color-border-focus:   var(--ds-color-violet-400);
+
+    /* Shadcn-compat surfaces */
+    --ds-color-muted:              var(--ds-color-neutral-800);
+    --ds-color-muted-foreground:   var(--ds-color-neutral-400);
+    --ds-color-accent:             var(--ds-color-violet-900);
+    --ds-color-accent-foreground:  var(--ds-color-violet-100);
+    --ds-color-popover:            var(--ds-color-neutral-900);
+    --ds-color-popover-foreground: var(--ds-color-neutral-50);
+    --ds-color-card:               var(--ds-color-neutral-900);
+    --ds-color-card-foreground:    var(--ds-color-neutral-50);
+
+    /* Form */
+    --ds-color-input:      var(--ds-color-neutral-800);
+    --ds-color-ring:       var(--ds-color-violet-400);
+    --ds-color-foreground: var(--ds-color-text-primary);
+
+    /* Brand */
+    --ds-color-primary:             var(--ds-color-violet-400);
+    --ds-color-primary-foreground:  var(--ds-color-neutral-950);
+    --ds-color-secondary:           var(--ds-color-violet-900);
+    --ds-color-secondary-foreground: var(--ds-color-violet-100);
+
+    /* Table */
+    --ds-table-header-bg:    var(--ds-color-neutral-900);
+    --ds-table-row-hover-bg: var(--ds-color-neutral-800);
+  }
+
+  /* ── Base element styles ── */
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--ds-font-family-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ds-font-family-headings);
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--ds-font-family-mono);
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.turbo/
+pnpm-lock.yaml
+package-lock.json
+analysis-report.json
+*.docx
+.DS_Store

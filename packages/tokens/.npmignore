@@ -1,0 +1,30 @@
+# Source — only ship dist
+src/
+scripts/
+tsconfig*.json
+dist-cjs/
+
+# Source maps — not needed by consumers
+dist/**/*.map
+
+# Orphan .js files from earlier tsc runs (we ship .mjs + .cjs, not .js)
+dist/index.js
+dist/generate-css.js
+dist/layers/*.js
+!dist/layers/*.mjs
+!dist/layers/*.cjs
+
+# Stray test files from FS probing
+dist/zzz.txt
+
+# Editor / OS
+.DS_Store
+*.tsbuildinfo
+*.log
+
+# Tests / sandboxes (none yet, but reserve)
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx

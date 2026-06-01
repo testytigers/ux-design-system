@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Workspace metadata
+.turbo/
+
+# Lockfiles — only one should win. We use pnpm.
+package-lock.json
+yarn.lock
+
+# Intermediate / transient build artifacts
+packages/*/dist-cjs/
+packages/*/tsconfig.cjs.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+.npm/
+
+# Python (legacy scripts)
+__pycache__/
+*.pyc
+*.pyo
+
+# Test / coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Env
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,39 @@
+{
+  "name": "@ux/mcp-design-system",
+  "version": "0.1.0",
+  "description": "MCP server exposing the UX Design System tokens, components, and theming to any MCP-aware client (Claude Desktop, Cursor, Zed, Continue).",
+  "type": "module",
+  "bin": {
+    "ux-design-system-mcp": "./dist/server.js"
+  },
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    },
+    "./next": {
+      "types": "./dist/next.d.ts",
+      "default": "./dist/next.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/server.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.7.0"
+  }
+}
